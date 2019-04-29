@@ -4,17 +4,30 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>jcfg-injection</groupId>
+        <artifactId>jcfg-pom</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+
     <groupId>jcfg-injection</groupId>
     <artifactId>jcfg-injection-manager</artifactId>
     <packaging>pom</packaging>
     <version>0.1-SNAPSHOT</version>
-    <modules>
-        <module>../jcfg-core</module>
-    </modules>
+
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jcfg-injection</groupId>
+            <artifactId>jcfg-core</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

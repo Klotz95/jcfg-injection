@@ -55,6 +55,9 @@ public abstract class ConfigurationFileStore<T extends ConfigurationFileStoreReq
      */
     public abstract void writeConfigurationFile(ConfigurationFile configurationFile, T configurationFileStoreRequest);
 
+
+    public abstract ConfigurationStorageTypes getConfigurationStorageType();
+
     /**
      * This method returns the suffix of the passed path. It will search for the last dot position and returns a substring
      * containing all letters after that position

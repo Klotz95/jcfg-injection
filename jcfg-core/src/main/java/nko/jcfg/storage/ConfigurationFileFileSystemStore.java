@@ -126,4 +126,9 @@ public class ConfigurationFileFileSystemStore extends ConfigurationFileStore<Con
         }
 
     }
+
+    @Override
+    public ConfigurationStorageTypes getConfigurationStorageType() {
+        return ConfigurationStorageTypes.FILE_SYSTEM;
+    }
 }
