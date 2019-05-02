@@ -1,7 +1,6 @@
 package nko.jcfg.manager;
 
-import nko.jcfg.storage.ConfigurationStorageTypes;
-import sun.security.krb5.Config;
+import nko.jcfg.storage.ConfigurationStorageType;
 
 import java.util.Optional;
 
@@ -16,19 +15,19 @@ import java.util.Optional;
 public class ConfigurationDocumentManagerConfig {
 
     private final String baseConfigurationFilePath;
-    private final ConfigurationStorageTypes baseStorage;
+    private final ConfigurationStorageType baseStorage;
     private final String mergableConfigurationFilePath;
-    private final ConfigurationStorageTypes mergableStorage;
+    private final ConfigurationStorageType mergableStorage;
 
 
-    public ConfigurationDocumentManagerConfig(String baseConfigurationFilePath, ConfigurationStorageTypes baseStorage){
+    public ConfigurationDocumentManagerConfig(String baseConfigurationFilePath, ConfigurationStorageType baseStorage){
         this.baseConfigurationFilePath = baseConfigurationFilePath;
         this.baseStorage = baseStorage;
         this.mergableStorage = null;
         this.mergableConfigurationFilePath = null;
     }
 
-    public ConfigurationDocumentManagerConfig(String baseConfigurationFilePath, ConfigurationStorageTypes baseStorage, String mergableConfigurationFilePath, ConfigurationStorageTypes mergableStorage) {
+    public ConfigurationDocumentManagerConfig(String baseConfigurationFilePath, ConfigurationStorageType baseStorage, String mergableConfigurationFilePath, ConfigurationStorageType mergableStorage) {
         this.baseConfigurationFilePath = baseConfigurationFilePath;
         this.baseStorage = baseStorage;
         this.mergableConfigurationFilePath = mergableConfigurationFilePath;
@@ -51,11 +50,11 @@ public class ConfigurationDocumentManagerConfig {
         return Optional.of(mergableConfigurationFilePath);
     }
 
-    public ConfigurationStorageTypes getBaseStorage() {
+    public ConfigurationStorageType getBaseStorage() {
         return baseStorage;
     }
 
-    public Optional<ConfigurationStorageTypes> getMergableStorage() {
+    public Optional<ConfigurationStorageType> getMergableStorage() {
         return Optional.of(mergableStorage);
     }
 

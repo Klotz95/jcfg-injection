@@ -6,6 +6,6 @@ package nko.jcfg.storage;
  * @author Nico Kotlenga (NicoKotlenga@live.de)
  * @since 29.04.19
  */
-public enum ConfigurationStorageTypes {
+public enum ConfigurationStorageType {
     FILE_SYSTEM;
 }

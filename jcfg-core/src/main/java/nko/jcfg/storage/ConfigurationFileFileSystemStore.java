@@ -35,7 +35,7 @@ import java.lang.invoke.MethodHandles;
  */
 @Service
 @Named("configuration-file-file-system-store")
-public class ConfigurationFileFileSystemStore extends ConfigurationFileStore<ConfigurationFileFileSystemRequest> {
+public class ConfigurationFileFileSystemStore extends ConfigurationFileStore {
 
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
@@ -45,11 +45,12 @@ public class ConfigurationFileFileSystemStore extends ConfigurationFileStore<Con
     }
 
     @Override
-    public ConfigurationFile readConfigurationFile(ConfigurationFileFileSystemRequest configurationFileStoreRequest) throws ConfigurationException {
-        String path = configurationFileStoreRequest.getPath();
+    public ConfigurationFile readConfigurationFile(ConfigurationFileStoreRequest configurationFileStoreRequest) throws ConfigurationException {
+        ConfigurationFileFileSystemRequest convertedRequest = (ConfigurationFileFileSystemRequest) configurationFileStoreRequest;
+        String path = convertedRequest.getPath();
         logger.info("Reading configuration file located at {}", path);
 
-        File configurationFileReference = new File(configurationFileStoreRequest.getPath());
+        File configurationFileReference = new File(convertedRequest.getPath());
         if (configurationFileReference.exists()) {
             int lastDot = path.lastIndexOf(".");
             String fileSuffix = path.substring(lastDot + 1);
@@ -88,15 +89,16 @@ public class ConfigurationFileFileSystemStore extends ConfigurationFileStore<Con
     }
 
     @Override
-    public void writeConfigurationFile(ConfigurationFile configurationFile, ConfigurationFileFileSystemRequest configurationFileStoreRequest) {
-        String path = configurationFileStoreRequest.getPath();
+    public void writeConfigurationFile(ConfigurationFile configurationFile, ConfigurationFileStoreRequest configurationFileStoreRequest) {
+        ConfigurationFileFileSystemRequest convertedRequest = (ConfigurationFileFileSystemRequest)configurationFileStoreRequest;
+        String path = convertedRequest.getPath();
         logger.info("Writing configuration file to {}", path);
 
         String fileSuffix = getFileSuffix(path);
         ConfigurationFileType configurationFileType = ConfigurationFileType.getFileTypeBySuffix(fileSuffix);
         ConfigurationFileMapper configurationFileMapper = configurationFileMapperByType.get(configurationFileType);
 
-        File configurationFileReference = new File(configurationFileStoreRequest.getPath());
+        File configurationFileReference = new File(convertedRequest.getPath());
         OutputStream configOut = null;
 
 
@@ -128,7 +130,7 @@ public class ConfigurationFileFileSystemStore extends ConfigurationFileStore<Con
     }
 
     @Override
-    public ConfigurationStorageTypes getConfigurationStorageType() {
-        return ConfigurationStorageTypes.FILE_SYSTEM;
+    public ConfigurationStorageType getConfigurationStorageType() {
+        return ConfigurationStorageType.FILE_SYSTEM;
     }
 }

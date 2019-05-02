@@ -25,7 +25,7 @@ import java.util.Map;
  * @author: NKO (NicoKotlenga@live.de)
  * @since: 2019-04-29
  */
-public abstract class ConfigurationFileStore<T extends ConfigurationFileStoreRequest> {
+public abstract class ConfigurationFileStore {
 
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
@@ -44,7 +44,7 @@ public abstract class ConfigurationFileStore<T extends ConfigurationFileStoreReq
      * @param configurationFileStoreRequest which defines the parameters to point to a specific configuration file location
      * @return the requested {@link ConfigurationFile} if present
      */
-    public abstract ConfigurationFile readConfigurationFile(T configurationFileStoreRequest);
+    public abstract ConfigurationFile readConfigurationFile(ConfigurationFileStoreRequest configurationFileStoreRequest);
 
     /**
      * This method will save a {@link ConfigurationFile} object to the {@link ConfigurationFileStore} at the location
@@ -53,10 +53,10 @@ public abstract class ConfigurationFileStore<T extends ConfigurationFileStoreReq
      * @param configurationFile             which need to get saved inside the {@link ConfigurationFileStore}
      * @param configurationFileStoreRequest defines
      */
-    public abstract void writeConfigurationFile(ConfigurationFile configurationFile, T configurationFileStoreRequest);
+    public abstract void writeConfigurationFile(ConfigurationFile configurationFile, ConfigurationFileStoreRequest configurationFileStoreRequest);
 
 
-    public abstract ConfigurationStorageTypes getConfigurationStorageType();
+    public abstract ConfigurationStorageType getConfigurationStorageType();
 
     /**
      * This method returns the suffix of the passed path. It will search for the last dot position and returns a substring

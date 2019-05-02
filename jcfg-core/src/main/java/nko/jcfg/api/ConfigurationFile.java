@@ -18,16 +18,16 @@ public class ConfigurationFile {
     private static final String GLOBAL_PARAMETERS_PARAMETER_NAME = "global-parameters";
 
     @JsonProperty(CONFIGURATION_DOCUMENTS_PARAMETER_NAME)
-    private final Map<String, JsonNode> configurationDocuments;
+    private final Map<String, ConfigurationDocument> configurationDocuments;
     @JsonProperty(GLOBAL_PARAMETERS_PARAMETER_NAME)
     private final Map<String, String> globalParameters;
 
-    public ConfigurationFile(Map<String, JsonNode> configurationDocuments, Map<String, String> globalParameters) {
+    public ConfigurationFile(Map<String, ConfigurationDocument> configurationDocuments, Map<String, String> globalParameters) {
         this.configurationDocuments = configurationDocuments;
         this.globalParameters = globalParameters;
     }
 
-    public Map<String, JsonNode> getConfigurationDocuments() {
+    public Map<String, ConfigurationDocument> getConfigurationDocuments() {
         return configurationDocuments;
     }
 
