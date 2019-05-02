@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * configuration file
  *
  * This class can get used to handle manual the injection of {@link ConfigurationDocument}s without the help
- * of the {@link nko.jcfg.ServiceLocatorConfigurationInjector}
+ * of the configurationServiceLocator
  *
  * @author Nico Kotlenga (Nico.Kotlenga.Student@atis-systems.com)
  * @since 29.04.19
