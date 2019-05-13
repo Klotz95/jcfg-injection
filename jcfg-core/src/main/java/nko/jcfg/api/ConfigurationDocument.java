@@ -14,17 +14,37 @@ import java.util.Map;
  */
 public abstract class ConfigurationDocument {
 
+    private final String documentName;
     protected final Map<String, Object> configurationParameters;
 
 
-    public ConfigurationDocument() {
+    /**
+     * This constructor will init a {@link ConfigurationDocument} with the specified name and an
+     * empty parameters {@link Map}
+     *
+     * @param documentName of the new generated {@link ConfigurationDocument}
+     */
+    public ConfigurationDocument(String documentName) {
+        this.documentName = documentName;
         this.configurationParameters = new HashMap<>();
+    }
+
+    /**
+     * This constructor will init a {@link ConfigurationDocument} with the specified name and the
+     * specified configurationParameters
+     *
+     * @param documentName of the new generated {@link ConfigurationDocument}
+     * @param configurationParameters which are currently defined inside the {@link ConfigurationDocument}
+     */
+    public ConfigurationDocument(String documentName, Map<String, Object> configurationParameters){
+        this.documentName = documentName;
+        this.configurationParameters = configurationParameters;
     }
 
     /**
      * This method will return a configuration parameter with the specified name
      *
-     * @param parameterName of the parameter which should get returned by this method cal
+     * @param parameterName of the parameter which should get returned by this method call
      * @return the parameter as {@link Object}
      */
     public Object getConfigurationParameter(String parameterName) {

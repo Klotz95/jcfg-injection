@@ -1,9 +1,6 @@
 package nko.jcfg.mapper;
 
 import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.MappingJsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import nko.jcfg.api.ConfigurationFileType;
 import org.jvnet.hk2.annotations.Service;
 import org.slf4j.Logger;
