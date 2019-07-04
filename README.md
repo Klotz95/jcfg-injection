@@ -68,6 +68,7 @@ containing the global parameters which are accesable in the whole project</td>
 <li>INI</li>
 <li>YAML</li>
 <li>XML</li>
+<li>TOML</li>
 <li>JSON</li></ul>
 </td>
 <td>This enum defines the type in which the ConfigurationFile will be saved inside the 
