@@ -32,7 +32,7 @@ to the classes using the @ConfigInject-annotation</td>
 </tr>
 </table>
 <h2>API</h2>
-<p>jcfg-inejction offers a small data model to handle the injection of configuration documents<br>
+<p>jcfg-injection offers a small data model to handle the injection of configuration documents<br>
 The following table will give you an overview of the model. The data model classes doesn't have 
 a relation to each other. </p>
 <table>
