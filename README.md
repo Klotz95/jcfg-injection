@@ -59,7 +59,7 @@ defining the parameter-name and as value the related object.</td>
 </ul>
 <td>This class represents the file structure of the document saved to the specified configuration
 storage. It holding the configurationDocuments inside a Map where the documentName
-is represented by the key and the content is jolding as a JsonNode. The file is also
+is represented by the key and the content holds as a JsonNode. The file is also
 containing the global parameters which are accesable in the whole project</td>
 </tr>
 <tr>
